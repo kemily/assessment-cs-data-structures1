@@ -1,0 +1,154 @@
+Part 1: Discussion Questions
+
+Runtime
+
+1. When calculating the Big O notation for a particular algorithm, it’s necessary to consider the length of time it takes for the algorithm to run as the algorithm’s workload approaches infinity. You can think of the workload as the number of tasks required to complete a job. What determines the workload of figuring out whether your box of animal crackers contains an elephant?
+
+Answer:
+
+In this situation to figure out wether the box of animal crackers contains an elephant, we should check each single cracker to determine whether it's an elephant cracker. We can look at this situation as a list of items, where we should iterate through each single item to find out which one is the one we need. So the length of a list determines runtime, and here the number of animal crackers in the box determines the workload. So in this case, it's a linear runtime O(n).
+
+2.Order the following runtimes in descending order of efficiency (that is, fastest runtimes first, slowest last) as n approaches infinity:
+
+Answer:
+O(1)
+O(log n)
+O(n)
+O(n log n)
+O(n^2)
+O(2^n) (i.e. 2 to the n-th power)
+
+/////////////////////////////////////////////////////////////////////////////
+
+Stacks and Queues
+
+1. In the following cases, would a stack or queue be a more appropriate data structure?
+
+a) The process of loading and unloading pallets onto a flatbed truck. 
+
+Answer:
+In this case Stacks! It's a similar situation as stack of pancakes. The pallets are very
+heavy, so it would make sense to load them one on top of previous one, but not lift the whole 
+stack in order to put the new one on the bottom. Also it would be more logical
+when unloading the track to take the last/top one first, but not to lift the whole
+stack and remove the bottom one. 
+
+b) Putting bottle caps on bottles of beer as they roll down an assembly line
+
+Answer:
+Queue! Assembly line works in forward direction, so the first bottle in line comes 
+to get caps, first will be out, when it get caps. 
+
+c) Calculating the solution to this mathematical expression: 2 + (7 * 4) - (3 / 2)
+
+Answer:
+
+Neither of the Stacks or Queues!
+Maths doesn't follow ordering method FIFO as queues, or LIFO as stacks. This mathematical 
+expression will be calculated in order: first parenthesis, then multiplication, division,
+addition and subtraction. 
+
+2. Describe two more situations where a queue would be an appropriate data structure.
+
+Answer:
+    - line in DMW (first comes, first get's helped)
+    - a hamburger processing line in e.g. McDonalds.
+
+
+3. Describe two more situations where a stack would be an appropriate data
+structure.
+
+    - stack of dirty dishes in a sink. (first in, last out, doesn't make sense to take the 
+    bottom one to wash, because it will beat the rest)
+
+    - A garage that is only one car wide. To remove the first car in we have to take 
+    out all the other cars in after it.
+
+
+/////////////////////////////////////////////////////////////////////////////////
+
+Linked Lists
+
+1. Given the linked list below, which are the nodes? What is the data for each node? Where is the head? Where is the tail? (Please be as specific as possible — exactly which parts of the diagram correspond to each part? Arrows? Boxes? Text?)
+
+Answer: 
+
+-   there are three nodes in the linked list, which are the boxes under the head. Each node has 
+    two attributes - data and next, and refers to the next one with arrow. 
+
+-   the data for the first, second and third nodes are: 'Apple', 'Berry' and 'Cherry' respectively. 
+
+-   the head is the first box in the linked list. It points with an arrow to the first node which 
+    has data 'Apple'. 
+
+-   this specific linked list doens't have a tail attribute. But if it has, it would point
+    to the last node in the list, which has data 'Cherry'. Also a tail box would be next to the 
+    head box in the 'LLIST' box.
+
+2. What’s the difference between doubly- and singly-linked lists?
+
+Answer:
+
+Doubly-linked lists have 'next' and 'previous' node atributes, which also allows to look what is the 
+prior node to the current one is, as well as the next node. Singly-linked lists only have the 'next' 
+attribute, which allows to look what is the next node. 
+
+3. Why is it faster to append to a linked list if we keep track of the tail as an attribute?
+
+Answer:
+
+If a linked list didn't have a tail, then in order to append to it, we would have to 
+iterate through the whole liked list to know where is the last node we can append to. 
+We we'll know that if last node points to 'None'. But it seams a lot of work to do. 
+It would be faster if a linked list has a tail, which points to the last node, so 
+we can directly append to it. 
+
+
+/////////////////////////////////////////////////////////////////////////////////
+
+Trees
+
+1. Given the tree above, in what order would a Breadth First Search (BFS) algorithm visit each node until finding burrito (starting at food)? Just list the order of nodes visited; no need to recreate the state of the algorithm data in your answer.
+
+Answer: 
+
+[food]
+[Italian, Indian, Mexican]
+[Indian, Mexican, lasagna, pizza]
+[Mexican, lasagna, pizza, tikka masala, saag]
+[lasagna, pizza, tikka masala, saag, burrito, tacos, enchiladas]
+[pizza, tikka masala, saag, burrito, tacos, enchiladas]
+[tikka masala, saag, burrito, tacos, enchiladas, thin crust, Chicago-style, New York-style, Sicilian]
+[saag, burrito, tacos, enchiladas, thin crust, Chicago-style, New York-style, Sicilian]
+[burrito, tacos, enchiladas, thin crust, Chicago-style, New York-style, Sicilian]
+Pop burrito. We found it!
+
+
+2. Given the tree above, in what order would a Depth First Search (DFS) algorithm visit each node until finding Chicago-style (starting at food)? Just list the order of nodes visited; no need to recreate the state of the algorithm data in your answer.
+
+Answer:
+
+[food]
+[Italian, Indian, Mexican]
+[Italian, Indian, burrito, tacos, enchiladas]
+[Italian, Indian, burrito, tacos]
+[Italian, Indian, burrito]
+[Italian, Indian]
+[Italian, tikka masala, saag]
+[Italian, tikka masala]
+[Italian]
+[lasagna, pizza]
+[lasagna, thin crust, Chicago-style, New York-style, Sicilian]
+[lasagna, thin crust, Chicago-style, New York-style]
+[lasagna, thin crust, Chicago-style]
+Pop Chicago-style. We found it! 
+
+3. How is a binary search tree different from other trees?
+
+Answer:
+
+Binary search tree is also a tree, made of nodes, but each node has a left and 
+right child (max two children/nodes per node). Also binary search trees are sorted, 
+so that every choice we make in the search reduces options by half.
+It makes lookup and other operations very fast.
+
